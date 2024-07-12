@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SlimeClick : MonoBehaviour{
 
-
     public void OnClick() {
         SlimeManager.instance.TakeDamage(GameManager.instance.clickDamage);
     }

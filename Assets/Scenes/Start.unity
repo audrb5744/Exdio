@@ -742,7 +742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 0
   getMoney: 1
-  clickDamage: 0
+  clickDamage: 1
 --- !u!4 &1982437023
 Transform:
   m_ObjectHideFlags: 0
