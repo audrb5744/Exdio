@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour{
     public static GameManager instance;
 
     public double money;
-    public double getMoney;
+    public double getMoneyMul;
     public double clickDamage;
+    public float criChance;
+    public float criDamage;
 
     private void Awake(){
         instance = this;
