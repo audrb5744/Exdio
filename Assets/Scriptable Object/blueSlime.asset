@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dfd45712bfcbe2439cf5aff8007a974, type: 3}
   m_Name: blueSlime
   m_EditorClassIdentifier: 
-  slimeName: Blue Sime
-  slimeSprite: {fileID: -7078261816480267791, guid: bfeede70efd14484683f5956b4f1194b, type: 3}
-  type: 0
+  mobName: Blue Slime
+  mobAnim: {fileID: 9100000, guid: 19b51ac1c8830bc4b9ea7969ba04c6b9, type: 2}
+  mobType: 0

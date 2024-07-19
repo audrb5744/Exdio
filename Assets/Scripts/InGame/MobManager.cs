@@ -1,26 +1,21 @@
 using AssetKits.ParticleImage;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.UI;
 
 
-public class SlimeManager : MonoBehaviour{
-    public static SlimeManager instance;
 
-    [SerializeField] private TMP_Text moneyText;
-    [SerializeField] private TMP_Text nameText;
-    [SerializeField] private Slider hpBar;
-    [SerializeField] private List<AnimatorController> anims;
-    [SerializeField] private double mobDropGold;
-    [SerializeField] private double mobMaxHP;
-    [SerializeField] private double mobHP;
+public class MobManager : MonoBehaviour {
+    public static MobManager instance;
 
     Animator anim;
     [SerializeField] ParticleImage pi;
+
+    [SerializeField] private List<Mobs> mobs;
+    [SerializeField] private double mobDropGold;
+    public double mobMaxHP;
+    public double mobHP;
 
     GameManager gm;
 
@@ -36,14 +31,11 @@ public class SlimeManager : MonoBehaviour{
         mobHP -= damage;
         if (mobHP <= 0) Death(); 
         else anim.Play("Hit", -1, 0f);
-        hpBar.value = (float)(mobHP / mobMaxHP);
+        UIManager.instance.UpdateHpBar();
     }
 
     private bool TryCri() {
-        if(gm.criChance >= Random.value){
-            Debug.Log("Å©¸®");
-            return true;
-        }
+        if(gm.criChance >= UnityEngine.Random.value) return true;
         return false;
     }
 
@@ -56,9 +48,10 @@ public class SlimeManager : MonoBehaviour{
     IEnumerator MoneyEffect(){
         pi.Play();
         yield return  new WaitForSeconds(1.5f);
+        double dropGold = (mobDropGold * gm.getMoneyMul) * (1 + (UnityEngine.Random.Range(-1, 1) / 10f));
         for (int i = 0; i < 20; i++){
             yield return new WaitForSeconds(0.05f);
-            AddMoney((mobDropGold * gm.getMoneyMul) / 20);
+            AddMoney(dropGold / 20f);
         }
     }
 
@@ -71,13 +64,14 @@ public class SlimeManager : MonoBehaviour{
         anim.SetBool("isDeath", false);
         mobMaxHP = 10;
         mobHP = mobMaxHP;
-        hpBar.value = (float)(mobHP / mobMaxHP);
-        //gameObject.GetComponent<SpriteRenderer>().sprite = sprites[a];
-        gameObject.GetComponent<Animator>().runtimeAnimatorController = anims[Random.Range(0, anims.Count)];
+        UIManager.instance.UpdateHpBar();
+        int index = UnityEngine.Random.Range(0, mobs.Count);
+        gameObject.GetComponent<Animator>().runtimeAnimatorController = mobs[index].mobAnim;
+        UIManager.instance.SetName(mobs[index].name);
     }
 
     private void AddMoney(double money){
         gm.money += money;
-        moneyText.text = "" + (int)gm.money;
+        UIManager.instance.UpdateMoney();
     }
 }

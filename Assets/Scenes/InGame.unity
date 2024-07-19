@@ -529,7 +529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8236639517476419605, guid: 787e53981f0584fa08a05b1cc3eba0fb, type: 3}
       propertyPath: m_Name
-      value: CoinAttraction
+      value: MoneyEffect
       objectReference: {fileID: 0}
     - target: {fileID: 8530923719082059632, guid: 787e53981f0584fa08a05b1cc3eba0fb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -796,7 +796,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 631837367}
-        m_TargetAssemblyTypeName: SlimeClick, Assembly-CSharp
+        m_TargetAssemblyTypeName: MobClick, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -870,7 +870,7 @@ GameObject:
   - component: {fileID: 694336664}
   - component: {fileID: 694336667}
   m_Layer: 0
-  m_Name: SlimeManager
+  m_Name: MobManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,17 +888,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b053565dbb06f14b860be54e449ac63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyText: {fileID: 1682787828}
-  nameText: {fileID: 1890690074}
-  hpBar: {fileID: 1947970759}
-  anims:
-  - {fileID: 9100000, guid: 19b51ac1c8830bc4b9ea7969ba04c6b9, type: 2}
-  - {fileID: 9100000, guid: edd01e7941d8f3f47b2a9b19cf867856, type: 2}
-  - {fileID: 9100000, guid: ca6e2ca24d11847429bbceb64759af95, type: 2}
+  pi: {fileID: 1663591079}
+  mobs:
+  - {fileID: 11400000, guid: 17f78bbfaaf828743ab81c945944c5d6, type: 2}
+  - {fileID: 11400000, guid: e66687e1a36725948928fceda3c2c40d, type: 2}
+  - {fileID: 11400000, guid: 1eaed2090436bb8478fb564b9eafd6b1, type: 2}
   mobDropGold: 100
   mobMaxHP: 10
   mobHP: 10
-  pi: {fileID: 1663591079}
 --- !u!4 &694336665
 Transform:
   m_ObjectHideFlags: 0
@@ -987,51 +984,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &779518382
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 779518384}
-  - component: {fileID: 779518383}
-  m_Layer: 0
-  m_Name: SlimeCreater
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &779518383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779518382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a7a2614c68a27c49be3c3757c701f34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slimeDB: []
---- !u!4 &779518384
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779518382}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3161456, y: 1.1052408, z: 0.03834336}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &858789270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,7 +1478,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The Slime
+  m_text: Blue Slime
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1548,12 +1500,12 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58.2
+  m_fontSize: 46.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1603,6 +1555,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890690072}
   m_CullTransparentMesh: 1
+--- !u!1 &1920984181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1920984182}
+  - component: {fileID: 1920984183}
+  m_Layer: 0
+  m_Name: UIManger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1920984182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920984181}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1920984183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920984181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff586f7be838294facb36aff66675b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 1682787828}
+  nameText: {fileID: 1890690074}
+  hpBar: {fileID: 1947970759}
 --- !u!1 &1947970757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,5 +1700,5 @@ SceneRoots:
   - {fileID: 449579818}
   - {fileID: 694336665}
   - {fileID: 55176841}
-  - {fileID: 779518384}
   - {fileID: 1279152575}
+  - {fileID: 1920984182}

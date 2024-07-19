@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour{
+public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
     public double money;
     public double getMoneyMul;
-    public double clickDamage;
+    public double damage;
     public float criChance;
     public float criDamage;
 
