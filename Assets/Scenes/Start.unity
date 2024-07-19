@@ -743,8 +743,8 @@ MonoBehaviour:
   money: 0
   getMoneyMul: 1
   clickDamage: 1
-  criChance: 0
-  criDamage: 1
+  criChance: 0.05
+  criDamage: 2
 --- !u!4 &1982437023
 Transform:
   m_ObjectHideFlags: 0
