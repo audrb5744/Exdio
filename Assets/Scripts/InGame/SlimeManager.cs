@@ -2,6 +2,8 @@ using AssetKits.ParticleImage;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +14,7 @@ public class SlimeManager : MonoBehaviour{
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private Slider hpBar;
-    [SerializeField] private List<Sprite> sprites;
+    [SerializeField] private List<AnimatorController> anims;
     [SerializeField] private double mobDropGold;
     [SerializeField] private double mobMaxHP;
     [SerializeField] private double mobHP;
@@ -70,7 +72,8 @@ public class SlimeManager : MonoBehaviour{
         mobMaxHP = 10;
         mobHP = mobMaxHP;
         hpBar.value = (float)(mobHP / mobMaxHP);
-        gameObject.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Count)];
+        //gameObject.GetComponent<SpriteRenderer>().sprite = sprites[a];
+        gameObject.GetComponent<Animator>().runtimeAnimatorController = anims[Random.Range(0, anims.Count)];
     }
 
     private void AddMoney(double money){

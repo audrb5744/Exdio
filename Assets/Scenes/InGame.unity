@@ -891,10 +891,10 @@ MonoBehaviour:
   moneyText: {fileID: 1682787828}
   nameText: {fileID: 1890690074}
   hpBar: {fileID: 1947970759}
-  sprites:
-  - {fileID: -7078261816480267791, guid: bfeede70efd14484683f5956b4f1194b, type: 3}
-  - {fileID: -9074539206338946419, guid: c80534141f80d28489b1ef92f8ff7d99, type: 3}
-  - {fileID: 4367289792872251007, guid: d4e8a5c5eececab46942986a743fd7d8, type: 3}
+  anims:
+  - {fileID: 9100000, guid: 19b51ac1c8830bc4b9ea7969ba04c6b9, type: 2}
+  - {fileID: 9100000, guid: edd01e7941d8f3f47b2a9b19cf867856, type: 2}
+  - {fileID: 9100000, guid: ca6e2ca24d11847429bbceb64759af95, type: 2}
   mobDropGold: 100
   mobMaxHP: 10
   mobHP: 10
