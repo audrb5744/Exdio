@@ -6,14 +6,17 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
-    public double money;
-    public double getMoneyMul;
-    public double damage;
+    public uint money;
+    public float getMoneyMul;
+    public float damage;
     public float criChance;
     public float criDamage;
 
+    [Header("Mangers")]
+    public UIManager uiManager;
+    public MobManager mobManager;
+
     private void Awake(){
         instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 }

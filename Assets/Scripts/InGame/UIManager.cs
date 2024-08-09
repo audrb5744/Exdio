@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DamageNumbersPro;
 
 
 public class UIManager : MonoBehaviour{
 
-    public static UIManager instance;
-
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private Slider hpBar;
+    [SerializeField] public DamageNumber numberPrefab;
 
     GameManager gm;
     MobManager mm;
 
-    private void Awake(){
+    private void Start() {
         gm = GameManager.instance;
-        mm = MobManager.instance;
-        instance = this;
+        mm = gm.mobManager;
     }
 
     public void SetName(string name){
@@ -31,6 +30,15 @@ public class UIManager : MonoBehaviour{
     }
 
     public void UpdateHpBar(){
-        hpBar.value = (float)(mm.mobHP / mm.mobMaxHP);
+        hpBar.value = (float)mm.mobHP / (float)mm.mobMaxHP;
+    }
+
+    public void CreateDamageNumber(Vector3 point, int number, bool cri) {
+        DamageNumber dn = numberPrefab.Spawn(point, number);
+        if (cri) {
+            dn.SetColor(Color.red);
+            dn.enableShaking = true;
+            dn.numberSettings.bold = true;
+        }
     }
 }

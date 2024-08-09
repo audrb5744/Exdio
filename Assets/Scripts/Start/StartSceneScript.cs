@@ -11,6 +11,7 @@ public class StartSceneScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             SceneManager.LoadScene("InGame");
+
         }
     }
 

@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MobClick : MonoBehaviour{
+
+    GameManager gm;
+    MobManager mm;
+
+    private void Start() {
+        gm = GameManager.instance;
+        mm = gm.mobManager;
+    }
     public void OnClick() {
-        Debug.Log(GameManager.instance.damage);
-        MobManager.instance.TakeDamage(GameManager.instance.damage);
+        mm.TakeDamage(gm.damage, DamageType.click);
     }
 
 }
